@@ -71,10 +71,8 @@ if __name__ == "__main__":
         raise ValueError("Please supply the virtualenv directory as the first argument to"
                          " precommit.py in the .git/hooks/pre-commit file.")
     else:
-        if activate_virtualenv(sys.argv[1]):
-            # pytest returns 0 if no unit tests pass, else returns another number.
-            # pytest will print out the status of each test case.
-            # But it will not print the traceback for a failure.
-            sys.exit(pytest.main(['-v', '--tb', 'no', 'travigy/']))
-        else: # could not activate virtualenv
-            sys.exit(1)
+        activate_virtualenv(sys.argv[1])
+        # pytest returns 0 if no unit tests pass, else returns another number.
+        # pytest will print out the status of each test case.
+        # But it will not print the traceback for a failure.
+        sys.exit(pytest.main(['-v', '--tb', 'no']))

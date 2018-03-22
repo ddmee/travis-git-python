@@ -1,18 +1,15 @@
 #!/usr/bin/env python3
 """
-Python package installation code
+Python package installation code. Does not include reference to the requirements file.
 
 Created: 2018-03-22
 Author: Donal Mee
 """
+import inspect
+import os
 from setuptools import find_packages, setup
+from typing import List
 
-
-def readlines(fname):
-    """ Read in file to array and strip out whitespace """
-    with open(fname) as file:
-        content = file.readlines()
-        return [x.strip() for x in content]
 
 setup(
     name="travigy",
@@ -26,8 +23,6 @@ setup(
     long_description=open("README.md").read(),
 
     packages=find_packages(),
-
-    install_requires=readlines("requirements.txt"),
 
     python_requires="==3.*",
 
