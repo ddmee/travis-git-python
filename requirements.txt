@@ -1,0 +1,4 @@
+pytest==3.*
+isort==4.*
+bumpversion<=1
+pylint==1.*
