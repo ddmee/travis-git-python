@@ -1,0 +1,33 @@
+#!/bin/sh
+# author: donal mee
+# PRECOMMIT HOOK
+# Called by "git commit", expects no arguments.
+# This hooks invokes the unit tests. If the unit tests fail
+# offer to continue the commit anyway. If unit tests pass,
+# commit continues.
+# To disable this hook, rename this file to "pre-commit.sample".
+VENV_DIR="venv"
+python precommit.py $VENV_DIR
+
+
+if [ "$?" -ne "0" ]; then
+    echo "Unit tests did not pass."
+    # https://stackoverflow.com/questions/3417896/how-do-i-prompt-the-user-from-within-a-commit-msg-hook#10015707
+    # Allow us to read user input below, assign std in to keyboard
+    exec < /dev/tty
+
+    select NAME in "Commit(c) Abort(a)";
+    do
+        if [ "$REPLY" == "c" ]; then
+            echo "Continuing commit"
+            exit 0
+        elif [ "$REPLY" == "a" ]; then
+            echo "Aborting commit"
+            exit 1
+        fi
+    done
+
+else
+    echo "Unit tests passed"
+    exit 0
+fi

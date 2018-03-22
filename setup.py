@@ -5,7 +5,7 @@ Python package installation code
 Created: 2018-03-22
 Author: Donal Mee
 """
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 
 def readlines(fname):
