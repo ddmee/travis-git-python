@@ -7,7 +7,7 @@ Author: Donal Mee
 """
 
 def main():
-    print("hello ci world")
+    print("hello hugues ci world")
 
 
 if __name__ == '__main__':
