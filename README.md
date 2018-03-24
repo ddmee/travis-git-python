@@ -9,11 +9,11 @@ Goals:
 1. Automatically build and test all commits
 2. Prevent commits to master that have not passed the tests.
 
-Goal 1 is pretty easy to meet. Travis is easier to setup, so that whenever any commit is made on Github, it builds the commit. Travis only supports Linux (I found the OSX build option to cause failures for no-reason. It is still in beta). Using tox, we can build against the code on multiple versions of python.
+Goal 1 is pretty easy to meet. Travis is easier to setup, so that whenever any commit is made on Github, it builds the commit. Travis only supports Linux (I found the OSX build option to cause failures for no-reason. Multiple operating system builds is beta-feature in Travis). Using tox, we can build the code and run the tests in many versions of python.
 
-Goal 2 is a little more difficult. The natural way to prevent commits to master or to the server would be to use Git's server side hooks. Server side hooks are run in response to events, like a pull or commit, happen. Hook's allow arbitrary code to run run when the event occurs.
+Goal 2 is a little more difficult. The natural way to prevent commits to master or to the server is to use Git's server side hooks. Server side hooks run in response to events, like a pull or a commit. Hook's allow the execution of arbitrary code to run the event occurs.
 
-However, hosted solutions do not normally allow the use of server side hooks because of the arbitrary code execution feature. Instead, Github provides some other reduced functionality in place of git server-side hooks.
+However, hosted solutions, like Github and Bitbucket do not provide a way to upload server-side hooks for obvious reasons. Instead, Github replicates a stripped down version of server-side hooks through an API and branch protection that can wait for CI integrations to pass before commiting to a protected branch.
 
 ### Support or Contact
 
