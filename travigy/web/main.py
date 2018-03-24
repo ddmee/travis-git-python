@@ -7,9 +7,9 @@ Author: Donal Mee
 """
 from bottle import route, run, template
 
-@route("/hello/<name>")
-def index(name):
-    return template("<b>Hello {{name}}</b>!", name=name)
+@route("/")
+def index():
+    import pdb; pdb.set_trace()
 
 def start():
     run(host="localhost", port=8080)
