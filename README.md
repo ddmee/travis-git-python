@@ -1,7 +1,7 @@
 # CI for Python with Travis.org
-![Travis CI](https://travis-ci.org/images/logos/TravisCI-Mascot-1.png)
-![Python](https://cdn-images-1.medium.com/max/1200/1*PPIp7twJJUknfohZqtL8pQ.png)
 ![Build status](https://travis-ci.org/ddmee/travis-git-python.svg?branch=master)
+![Travis CI](./travis.PNG)
+![Python](./python.PNG)
 
 Travis.org provides open-source projects with a free CI facility. 
 
